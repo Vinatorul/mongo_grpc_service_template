@@ -49,6 +49,10 @@ jobs:
                 sudo apt install --allow-downgrades -y $(cat third_party/userver/scripts/docs/en/deps/${{matrix.os}}.md | tr '\n' ' ')
                 python3 -m pip install -r requirements.txt
 
+          - name: Install mongo
+            run: |
+                sudo apt install -y mongodb-org
+
           - name: Setup ccache
             run: |
                 ccache -M 2.0GB
